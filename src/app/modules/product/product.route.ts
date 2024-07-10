@@ -1,11 +1,8 @@
 import { Router } from 'express'
+import { ProductController } from './product.controller'
 
 const router = Router()
 
-router.get('/', (req, res) => {
-  res.json({
-    message: 'products route',
-  })
-})
+router.get('/', ProductController.getProducts)
 
 export const ProductRoute = router
