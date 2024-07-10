@@ -1,15 +1,15 @@
-import { Router } from "express";
-import { demoRoute } from "../modules/scratch/scratch.route";
+import { Router } from 'express'
+import { ProductRoute } from '../modules/product/product.route'
 
-const router = Router();
+const router = Router()
 
 const moduleRoutes = [
   {
-    path: "/",
-    route: demoRoute,
+    path: '/products',
+    route: ProductRoute,
   },
-];
+]
 
-moduleRoutes.forEach((route) => router.use(route.path, route.route));
+moduleRoutes.forEach(route => router.use(route.path, route.route))
 
-export default router;
+export default router

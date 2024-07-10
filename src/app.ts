@@ -14,11 +14,13 @@ app.use(cors())
 // application routes
 app.use('/api/v1', router)
 
-const test = async (req: Request, res: Response) => {
-  res.send(`Server is running on port: ${config.port}`)
+const root = async (req: Request, res: Response) => {
+  res.json({
+    message: `Server is running on port: ${config.port}`,
+  })
 }
 
-app.get('/', test)
+app.get('/', root)
 
 app.use(globalErrorHandler)
 
