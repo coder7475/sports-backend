@@ -8,3 +8,7 @@ export interface IProduct {
   image: string
   description: string
 }
+
+export interface IQuery {
+  name: object
+}
