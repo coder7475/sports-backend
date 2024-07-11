@@ -12,11 +12,11 @@ const getAllProducts = async (query: Partial<IQuery>, sortBy: string) => {
   return await Product.find(query).sort(sortQuery).lean().exec();
 };
 
-const getProduct = async (id: string) => {
+const getProductById = async (id: string) => {
   return await Product.findById(id).lean().exec();
 };
 
 export const ProductServices = {
   getAllProducts,
-  getProduct,
+  getProductById,
 };
