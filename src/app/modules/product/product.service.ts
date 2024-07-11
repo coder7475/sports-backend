@@ -1,6 +1,7 @@
-import { IQuery, ISort } from './product.interface';
+import { IProduct, IQuery, ISort } from './product.interface';
 import { Product } from './product.model';
 
+// get all products
 const getAllProducts = async (query: Partial<IQuery>, sortBy: string) => {
   const sortQuery: Partial<ISort> = {};
   if (sortBy === 'des') {
@@ -12,11 +13,18 @@ const getAllProducts = async (query: Partial<IQuery>, sortBy: string) => {
   return await Product.find(query).sort(sortQuery).lean().exec();
 };
 
+// get one product by Id
 const getProductById = async (id: string) => {
   return await Product.findById(id).lean().exec();
+};
+
+// create new product
+const createNewProduct = async (product: IProduct) => {
+  return await Product.create(product);
 };
 
 export const ProductServices = {
   getAllProducts,
   getProductById,
+  createNewProduct,
 };
