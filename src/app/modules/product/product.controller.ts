@@ -50,7 +50,20 @@ const getOneProduct = catchAsync(async (req, res) => {
   });
 });
 
+// create new product
+const createProduct = catchAsync(async (req, res) => {
+  const result = await ProductServices.createNewProduct(req.body);
+  // send response
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Product retrieved successfully',
+    data: result,
+  });
+});
+
 export const ProductController = {
   getProducts,
   getOneProduct,
+  createProduct,
 };
