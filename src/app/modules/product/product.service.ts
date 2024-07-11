@@ -23,8 +23,14 @@ const createNewProduct = async (product: IProduct) => {
   return await Product.create(product);
 };
 
+// update an product by id
+const updateProductById = async (id: string) => {
+  return await Product.findByIdAndUpdate(id);
+};
+
 export const ProductServices = {
   getAllProducts,
   getProductById,
   createNewProduct,
+  updateProductById,
 };
