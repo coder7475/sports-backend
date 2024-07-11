@@ -24,9 +24,11 @@ const getProducts = catchAsync(async (req, res) => {
   // filter by rating
   const rating = (req.query.rating as string) || 0;
   if (rating) query.price = Number(rating);
+  // sort by ascending and descending
+  const sortBy = req.query.sort as string;
 
   // get all products from database
-  const result = await ProductServices.getAllProducts(query);
+  const result = await ProductServices.getAllProducts(query, sortBy);
   // send response
   sendResponse(res, {
     statusCode: httpStatus.OK,
