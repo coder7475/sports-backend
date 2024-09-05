@@ -17,7 +17,7 @@ const getProducts = catchAsync(async (req, res) => {
   if (category) query.category = category;
   // filter by brand
   const brand = (req.query.brand as string) || '';
-  if (brand) query.brand = brand;
+  if (brand) query.brand = { $regex: brand, $options: 'i' };
   // filter by price
   const price = (req.query.price as string) || '0-1000';
   if (price) {
