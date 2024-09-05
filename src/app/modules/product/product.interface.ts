@@ -16,7 +16,7 @@ export interface IQuery {
   category: string;
   brand: object;
   price: object;
-  rating: number;
+  rating: object;
 }
 
 export interface ISort {

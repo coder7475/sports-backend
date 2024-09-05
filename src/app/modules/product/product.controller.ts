@@ -26,7 +26,10 @@ const getProducts = catchAsync(async (req, res) => {
   }
   // filter by rating
   const rating = (req.query.rating as string) || 0;
-  if (rating) query.rating = Number(rating);
+  if (rating) {
+    const minRating = Number(rating);
+    query.rating = { $gte: minRating };
+  }
   // sort by ascending and descending
   const sortBy = req.query.sort as string;
 
