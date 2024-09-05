@@ -19,11 +19,14 @@ const getProducts = catchAsync(async (req, res) => {
   const brand = (req.query.brand as string) || '';
   if (brand) query.brand = brand;
   // filter by price
-  const price = (req.query.price as string) || 0;
-  if (price) query.price = Number(price);
+  const price = (req.query.price as string) || '0-1000';
+  if (price) {
+    const [minPrice, maxPrice] = price.split('-').map(Number);
+    query.price = { $gte: minPrice, $lte: maxPrice || Number.MAX_VALUE };
+  }
   // filter by rating
   const rating = (req.query.rating as string) || 0;
-  if (rating) query.price = Number(rating);
+  if (rating) query.rating = Number(rating);
   // sort by ascending and descending
   const sortBy = req.query.sort as string;
 

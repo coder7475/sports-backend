@@ -15,7 +15,7 @@ export interface IQuery {
   name: object;
   category: string;
   brand: string;
-  price: number;
+  price: object;
   rating: number;
 }
 
