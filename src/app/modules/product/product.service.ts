@@ -4,7 +4,7 @@ import { Product } from './product.model';
 // get all products
 const getAllProducts = async (query: Partial<IQuery>, sortBy: string) => {
   const sortQuery: Partial<ISort> = {};
-  if (sortBy === 'des') {
+  if (sortBy === 'dsc') {
     sortQuery.price = -1;
   }
   if (sortBy === 'asc') {
