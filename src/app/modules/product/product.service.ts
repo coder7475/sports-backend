@@ -9,7 +9,7 @@ const getAllProducts = async (query: Partial<IQuery>, sortBy: string) => {
   }
   if (sortBy === 'asc') {
     sortQuery.price = 1;
-  }
+  } 
   return await Product.find(query).sort(sortQuery).lean().exec();
 };
 
