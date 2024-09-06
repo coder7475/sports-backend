@@ -72,9 +72,8 @@ const createProduct = catchAsync(async (req, res) => {
 const updateProduct = catchAsync(async (req, res) => {
   // extract the id
   const id = req.params.productId;
-  console.log(id);
   // update a product
-  const result = await ProductServices.updateProductById(id);
+  const result = await ProductServices.updateProductById(id, req.body);
 
   // send response
   sendResponse(res, {

@@ -9,7 +9,7 @@ const getAllProducts = async (query: Partial<IQuery>, sortBy: string) => {
   }
   if (sortBy === 'asc') {
     sortQuery.price = 1;
-  } 
+  }
   return await Product.find(query).sort(sortQuery).lean().exec();
 };
 
@@ -24,8 +24,11 @@ const createNewProduct = async (product: IProduct) => {
 };
 
 // update an product by id
-const updateProductById = async (id: string) => {
-  return await Product.findByIdAndUpdate(id);
+const updateProductById = async (id: string, product: Partial<IProduct>) => {
+  return await Product.findByIdAndUpdate(id, product, {
+    new: true,
+    runValidators: true,
+  }).lean();
 };
 
 // delete an product by id
