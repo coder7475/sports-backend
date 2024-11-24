@@ -1,7 +1,11 @@
-#-------------------------------------------
-# Pin specific version (use slim for reduced image size)
-FROM node:19.6-bullseye-slim
-#-------------------------------------------
-COPY . .
+FROM node:20-bullseye-slim
+
+WORKDIR /usr/src/app
+
+COPY package*.json ./
+
 RUN npm install
+
+COPY . .
+
 CMD [ "node", "dist/server.js" ]
