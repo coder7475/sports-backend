@@ -59,10 +59,6 @@ Run the image
 docker run -d --env-file .env -p 5003:5003 node-backend:8
 ```
 
-```bash
-
-```
-
 The server should now be running on `http://localhost:5003`.
 
 ## API Endpoints
