@@ -1,4 +1,4 @@
-FROM node:20-bullseye-slim
+FROM node:20-alpine
 
 WORKDIR /usr/src/app
 
@@ -6,6 +6,6 @@ COPY package*.json ./
 
 RUN npm install
 
-COPY . .
+COPY ./src .
 
-CMD [ "node", "dist/server.js" ]
+CMD [ "npm", "start"]
