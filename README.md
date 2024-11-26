@@ -11,6 +11,7 @@ These instructions will get you a copy of the project up and running on your loc
 - Node.js (v20 or later)
 - npm (comes with Node.js)
 - MongoDB
+- docker
 
 ### Installation
 
@@ -39,9 +40,28 @@ These instructions will get you a copy of the project up and running on your loc
    Replace the `DATABASE_URL` with your actual MongoDB connection string.
 
 4. Start the server:
+
    ```
    npm run dev
    ```
+
+5. Run in production mode with docker
+
+first build the image:
+
+```bash
+docker build -t node-backed:8 .
+```
+
+Run the image
+
+```bash
+docker run -d --env-file .env -p 5003:5003 node-backend:8
+```
+
+```bash
+
+```
 
 The server should now be running on `http://localhost:5003`.
 

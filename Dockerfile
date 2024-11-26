@@ -16,8 +16,9 @@ RUN --mount=type=cache,target=/usr/src/app/.npm \
 
 USER node
 
-COPY --chown=node:node . .
+COPY --chown=node:node tsconfig.json .
+COPY --chown=node:node ./dist ./dist
 
 EXPOSE 5003
 
-CMD [ "npm", "start"]
+CMD [ "npm", "start" ]
