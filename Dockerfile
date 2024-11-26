@@ -16,7 +16,7 @@ RUN --mount=type=cache,target=/usr/src/app/.npm \
 
 USER node
 
-COPY --chown=node:node ./src .
+COPY --chown=node:node . .
 
 EXPOSE 5003
 
