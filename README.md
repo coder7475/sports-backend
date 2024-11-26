@@ -50,7 +50,7 @@ These instructions will get you a copy of the project up and running on your loc
 first build the image:
 
 ```bash
-docker build -t node-backed:8 .
+docker build -t node-backend:8 .
 ```
 
 Run the image
